@@ -6,79 +6,75 @@ import { navLinks, profile } from '../data'
 function Navbar() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
-
   const isDetailPage = location.pathname.startsWith('/projects/')
-
-  const linkBase = isDetailPage ? '/' : ''
+  const base = isDetailPage ? '/' : ''
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link
-          to="/"
-          className="group flex items-center gap-3 text-left"
-          onClick={() => setOpen(false)}
-        >
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-sm font-bold text-cyan-200 shadow-[0_0_0_1px_rgba(34,211,238,0.08)] transition group-hover:-translate-y-0.5">
-            TR
-          </span>
-          <span className="flex flex-col">
-            <span className="text-sm font-semibold tracking-[0.2em] text-white uppercase">
-              Tomal Rahman
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f5f5f5]/90 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-[1284px] items-center justify-between px-4 py-4 sm:px-6 lg:px-0">
+        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <div className="flex h-11 w-11 overflow-hidden rounded-full border border-black/15 bg-white">
+            <img
+              src="/tr-logo.jpg"
+              alt="TR logo"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <div className="hidden flex-col sm:flex">
+            <span className="text-sm font-medium tracking-[0.18em] text-black uppercase">
+              {profile.name}
             </span>
-            <span className="text-xs text-slate-400">{profile.title}</span>
-          </span>
+            <span className="text-xs text-[#6b7280]">{profile.subtitle}</span>
+          </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1 lg:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
-              href={`${linkBase}${link.href}`}
-              className="rounded-full px-4 py-2 text-sm text-slate-300 transition hover:bg-white/10 hover:text-white"
+              href={`${base}${link.href}`}
+              className="text-[15px] text-black transition hover:text-[#6b7280]"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 md:flex">
           <a
             href={profile.resume}
-            className="inline-flex items-center rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-400/15"
             target="_blank"
             rel="noreferrer"
+            className="rounded-full border border-black/15 px-4 py-2 text-sm text-black transition hover:border-black hover:bg-black hover:text-white"
           >
             Resume
           </a>
           <a
-            href={`${linkBase}#contact`}
-            className="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-200"
+            href={`${base}#contact`}
+            className="rounded-full border border-black/15 px-4 py-2 text-sm text-black transition hover:border-black hover:bg-black hover:text-white"
           >
-            Let&apos;s Talk
+            Contact
           </a>
         </div>
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10 lg:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-label="Toggle navigation menu"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/15 bg-white text-black md:hidden"
         >
           {open ? <FiX size={20} /> : <FiMenu size={20} />}
         </button>
       </div>
 
-      <div
-        className={`border-t border-white/10 px-4 pb-4 lg:hidden ${open ? 'block' : 'hidden'}`}
-      >
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 pt-4">
+      <div className={`border-t border-black/10 md:hidden ${open ? 'block' : 'hidden'}`}>
+        <div className="mx-auto flex max-w-[1284px] flex-col gap-2 px-4 py-4 sm:px-6">
           {navLinks.map((link) => (
             <a
               key={link.label}
-              href={`${linkBase}${link.href}`}
+              href={`${base}${link.href}`}
               onClick={() => setOpen(false)}
-              className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200 transition hover:bg-white/10"
+              className="rounded-xl border border-black/10 bg-white px-4 py-3 text-black"
             >
               {link.label}
             </a>
@@ -88,14 +84,14 @@ function Navbar() {
               href={profile.resume}
               target="_blank"
               rel="noreferrer"
-              className="rounded-2xl border border-cyan-400/25 bg-cyan-400/10 px-4 py-3 text-center text-sm font-medium text-cyan-100"
+              className="rounded-xl border border-black/15 px-4 py-3 text-center text-sm text-black"
             >
               Resume
             </a>
             <a
-              href={`${linkBase}#contact`}
+              href={`${base}#contact`}
               onClick={() => setOpen(false)}
-              className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold text-slate-950"
+              className="rounded-xl border border-black/15 px-4 py-3 text-center text-sm text-black"
             >
               Contact
             </a>
