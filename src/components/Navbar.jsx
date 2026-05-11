@@ -11,7 +11,7 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f5f5f5]/90 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-[1284px] items-center justify-between px-4 py-4 sm:px-6 lg:px-0">
+      <div className="mx-auto flex max-w-[1284px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8 xl:px-10">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <div className="flex h-11 w-11 overflow-hidden rounded-full border border-black/15 bg-white">
             <img

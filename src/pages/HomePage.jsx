@@ -34,7 +34,7 @@ function ShellSection({ id, children, className = '' }) {
   return (
     <motion.section
       id={id}
-      className={`mx-auto w-full max-w-[1284px] px-4 py-20 sm:px-6 lg:px-0 ${className}`}
+      className={`mx-auto w-full max-w-[1160px] px-4 py-[4rem] sm:px-6 lg:px-0 ${className}`}
       variants={fadeUp}
       initial="hidden"
       whileInView="show"
@@ -61,21 +61,21 @@ function HomePage() {
     <div className="bg-[#f5f5f5] text-black">
       <Navbar />
 
-      <main className="mx-auto flex w-full max-w-[1440px] flex-col gap-24 overflow-hidden pb-24">
-        <section className="mx-auto flex w-full max-w-[1284px] flex-col gap-14 px-4 pt-10 sm:px-6 lg:px-0 lg:pt-16">
+      <main className="mx-auto flex w-full max-w-[1320px] flex-col gap-[5rem] overflow-hidden pb-20">
+        <section className="mx-auto flex min-h-[calc(100vh-110px)] w-full max-w-[1160px] flex-col gap-10 px-4 pt-8 sm:px-6 lg:px-0 lg:pt-7">
           <div className="flex items-center gap-2 text-sm text-[#6b7280]">
             <FiMapPin />
-            Bangladesh, open for global collaboration
+            Bangladesh, Open to Research Collaboration & Tech Roles.
           </div>
 
-          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div className="relative min-h-[580px] lg:min-h-[600px]">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="max-w-[640px] pt-20 lg:pt-28"
+              className="max-w-[670px] pt-14 lg:pt-[3.75rem]"
             >
-              <p className="text-[clamp(3.2rem,7vw,5.3rem)] leading-[0.93] tracking-[-0.05em] text-[#111928]">
+              <p className="max-w-[670px] text-[clamp(2.7rem,3.8vw,3.5rem)] leading-[0.95] tracking-[-0.055em] text-[#111928]">
                 I&apos;m Rezanur
                 <br />
                 Rahman Tomal, a
@@ -86,10 +86,7 @@ function HomePage() {
                 <br />
                 Bangladesh.
                 <br />
-                <span className="underline decoration-black decoration-2 underline-offset-8">
-                  Available
-                </span>{' '}
-                for
+                Available for
                 <br />
                 research
                 <br />
@@ -103,14 +100,15 @@ function HomePage() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.65 }}
-              className="relative mx-auto w-full max-w-[660px] pt-28 lg:pt-40"
+              className="relative mt-10 w-full max-w-[470px] lg:absolute lg:right-[54px] lg:top-[-28px] lg:mt-0 lg:w-[470px]"
             >
-              <div className="absolute inset-0 bg-[#c4c4c4]" />
-              <img
-                src={profile.photo}
-                      alt="Rezanur Rahman Tomal portrait"
-                className="relative h-[564px] w-full object-cover object-center"
-              />
+              <div className="relative h-[630px] w-full overflow-hidden bg-[#efefef]">
+                <img
+                  src={profile.photo}
+                  alt="Rezanur Rahman Tomal portrait"
+                  className="absolute inset-0 h-full w-full object-contain object-top"
+                />
+              </div>
             </motion.div>
           </div>
         </section>

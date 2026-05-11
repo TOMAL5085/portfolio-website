@@ -15,6 +15,18 @@
   --font-mono: 'IBM Plex Mono', monospace;
 }
 
+@media (min-width: 1360px) and (max-width: 1599px) {
+  :root {
+    font-size: 74%;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    font-size: 80%;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
