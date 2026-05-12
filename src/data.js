@@ -126,13 +126,13 @@ export const experience = [
 export const projects = [
   {
     slug: 'assignment-008',
-    title: 'Assignment 008',
+    title: 'Tiles Gallery',
     liveUrl: 'https://assignment-008.vercel.app/',
     repoUrl: 'https://github.com/TOMAL5085/ASSIGNMENT-008',
     accent: 'cyan',
     description:
-      'A polished React build with a clean interface, responsive structure, and product-style presentation.',
-    stack: ['React', 'Responsive UI', 'Deployment'],
+      'A curated tile showcase built with Next.js App Router, featuring Google & email authentication (Better Auth), searchable gallery with category filters, Swiper carousel, and profile management — backed by MongoDB. Deployed on Vercel.',
+    stack: ['React', 'JavaScript', 'MongoDB', 'Next.js', 'Fullstack', 'Swiper', 'Tailwind CSS', 'Vercel', 'DaisyUI', 'Better Auth'],
     challenge:
       'Keeping the layout balanced across devices while making the page feel modern and easy to scan.',
     future:
@@ -140,13 +140,13 @@ export const projects = [
   },
   {
     slug: 'assignment-007',
-    title: 'Assignment 007',
+    title: 'KeenKeeper',
     liveUrl: 'https://assignment-007-keenkeeper.netlify.app/',
     repoUrl: 'https://github.com/TOMAL5085/ASSIGNMENT-007',
     accent: 'emerald',
     description:
-      'A responsive web project focused on structured content, clear call-to-action flow, and a tidy visual rhythm.',
-    stack: ['React', 'Layout Systems', 'Netlify'],
+      'A responsive friendship tracker built with React 19, React Router, Recharts, and Tailwind CSS. Track friends, log interactions (Call/Text/Video), view live analytics, and never let a relationship go cold. Deployed on Netlify.',
+    stack: ['React', 'JavaScript', 'SPA', 'React Router', 'Netlify', 'Recharts', 'Tailwind CSS', 'Vite', 'Lucide React', 'Friendship Tracker'],
     challenge:
       'Maintaining consistency between sections while keeping the interface lightweight and readable.',
     future:
@@ -154,13 +154,13 @@ export const projects = [
   },
   {
     slug: 'assignment-006',
-    title: 'Assignment 006',
+    title: 'DigiTools',
     liveUrl: 'https://assignment-006-digitools.netlify.app/',
     repoUrl: 'https://github.com/TOMAL5085/ASSIGNMENT-006',
     accent: 'violet',
     description:
-      'A clean assignment landing page with an organized content layout and a strong emphasis on visual clarity.',
-    stack: ['React', 'CSS Styling', 'Deployment'],
+      'A responsive digital tools marketplace landing page featuring a product catalog, real-time cart management, and toast notifications.',
+    stack: ['JavaScript', 'ReactJS', 'Tailwind CSS', 'React Toastify', 'Vite', 'DaisyUI'],
     challenge:
       'Making the UI feel polished without overwhelming the visitor with too many competing elements.',
     future:
