@@ -1,9 +1,8 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   FiArrowRight,
   FiArrowUpRight,
-  FiChevronLeft,
-  FiChevronRight,
   FiMapPin,
 } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
@@ -55,6 +54,32 @@ function CirclePlus() {
 
 function HomePage() {
   const ContactIcon = contactCta.icon
+  const [formState, setFormState] = useState('idle')
+
+  async function handleContactSubmit(event) {
+    event.preventDefault()
+    setFormState('sending')
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      })
+
+      if (!response.ok) {
+        throw new Error('Submission failed')
+      }
+
+      form.reset()
+      setFormState('success')
+    } catch {
+      setFormState('error')
+    }
+  }
 
   return (
     <div className="bg-[#f5f5f5] text-black">
@@ -74,7 +99,7 @@ function HomePage() {
               transition={{ duration: 0.6 }}
               className="max-w-[670px] pt-14 lg:pt-[3.75rem]"
             >
-              <p className="max-w-[760px] text-[clamp(2.2rem,3.1vw,3rem)] leading-[1.04] tracking-[-0.05em] text-[#111928]">
+              <p className="max-w-[760px] text-[clamp(2.1rem,2.95vw,2.9rem)] leading-[1.1] tracking-[-0.04em] text-[#111928]">
                 I enjoy building
                 <br />
                 real-world software
@@ -257,11 +282,10 @@ function HomePage() {
             <div className="space-y-0">
               {aboutBullets.map((bullet, index) => (
                 <div key={bullet}>
-                  <div className="flex items-center justify-between gap-4 py-4">
+                  <div className="py-4">
                     <p className="text-[1.1rem] text-black">
                       0{index + 1} {bullet}
                     </p>
-                    <FiArrowRight className="-rotate-45 text-black/70" />
                   </div>
                   <div className="h-px bg-black/15" />
                 </div>
@@ -309,7 +333,13 @@ function HomePage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {experience.map((item) => (
-              <div key={item.title} className="rounded-[5px] border border-black/10 bg-white px-6 py-6">
+              <a
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-[5px] border border-black/10 bg-white px-6 py-6 transition hover:border-black/20 hover:shadow-[0_10px_30px_rgba(17,25,40,0.06)]"
+              >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="text-[1.2rem] text-black">{item.title}</p>
@@ -320,7 +350,7 @@ function HomePage() {
                   <FiArrowRight className="-rotate-45 text-black/60" />
                 </div>
                 <p className="mt-4 text-[1rem] leading-8 text-[#111928]/80">{item.body}</p>
-              </div>
+              </a>
             ))}
           </div>
         </ShellSection>
@@ -337,29 +367,15 @@ function HomePage() {
               </p>
             </div>
 
-            <div className="rounded-[999px] border border-black/10 bg-white px-5 py-5">
-              <div className="flex items-center justify-between gap-4 px-2">
-                <button
-                  type="button"
-                  className="flex h-14 w-14 items-center justify-center rounded-full border border-black/10 bg-white"
-                >
-                  <FiChevronLeft />
-                </button>
-                <div className="max-w-2xl text-center">
-                  <p className="text-[1.1rem] leading-8 text-black">
-                    "Passionate about AI, cybersecurity, and building real-world products through hands-on
-                    learning."
-                  </p>
-                  <p className="mt-3 text-sm uppercase tracking-[0.25em] text-[#6b7280]">
-                    Rezanur Rahman Tomal
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  className="flex h-14 w-14 items-center justify-center rounded-full border border-black/10 bg-white"
-                >
-                  <FiChevronRight />
-                </button>
+            <div className="rounded-[999px] border border-black/10 bg-white px-8 py-6 text-center">
+              <div className="mx-auto max-w-2xl">
+                <p className="text-[1.1rem] leading-8 text-black">
+                  "Passionate about AI, cybersecurity, and building real-world products through hands-on
+                  learning."
+                </p>
+                <p className="mt-3 text-sm uppercase tracking-[0.25em] text-[#6b7280]">
+                  Rezanur Rahman Tomal
+                </p>
               </div>
             </div>
           </div>
@@ -424,14 +440,34 @@ function HomePage() {
               </div>
             </div>
 
-            <form className="grid gap-5" onSubmit={(event) => event.preventDefault()}>
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              className="grid gap-5"
+              onSubmit={handleContactSubmit}
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="subject" value="Portfolio contact form submission" />
+              <p className="hidden">
+                <label>
+                  Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+                </label>
+              </p>
+
               <div className="grid gap-4 sm:grid-cols-2">
                 <input
+                  name="first-name"
+                  autoComplete="given-name"
+                  required
                   className="h-11 border-2 border-[#4e4e4e] bg-transparent px-3 text-[1rem] text-black outline-none placeholder:text-[#9f9f9f]"
                   placeholder="First Name"
                   aria-label="First Name"
                 />
                 <input
+                  name="last-name"
+                  autoComplete="family-name"
                   className="h-11 border-2 border-[#4e4e4e] bg-transparent px-3 text-[1rem] text-black outline-none placeholder:text-[#9f9f9f]"
                   placeholder="Last Name"
                   aria-label="Last Name"
@@ -440,11 +476,16 @@ function HomePage() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <input
+                  name="inquiry-type"
                   className="h-11 border-2 border-[#4e4e4e] bg-transparent px-3 text-[1rem] text-black outline-none placeholder:text-[#9f9f9f]"
                   placeholder="Inquiry Type"
                   aria-label="Inquiry Type"
                 />
                 <input
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
                   className="h-11 border-2 border-[#4e4e4e] bg-transparent px-3 text-[1rem] text-black outline-none placeholder:text-[#9f9f9f]"
                   placeholder="Email Address"
                   aria-label="Email Address"
@@ -452,22 +493,34 @@ function HomePage() {
               </div>
 
               <textarea
+                name="message"
+                required
                 className="min-h-[140px] border-2 border-[#4e4e4e] bg-transparent px-3 py-3 text-[1rem] text-black outline-none placeholder:text-[#9f9f9f]"
                 placeholder="Message"
                 aria-label="Message"
               />
 
               <div className="flex items-center gap-4">
-                <button className="border-2 border-[#4e4e4e] px-7 py-2 text-[1rem] text-black transition hover:bg-black hover:text-white">
-                  Send
-                </button>
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="text-[1rem] text-[#6b7280] underline underline-offset-4"
+                <button
+                  type="submit"
+                  disabled={formState === 'sending'}
+                  className="border-2 border-[#4e4e4e] px-7 py-2 text-[1rem] text-black transition hover:bg-black hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Email instead
-                </a>
+                  {formState === 'sending' ? 'Sending...' : 'Send'}
+                </button>
               </div>
+
+              {formState === 'success' ? (
+                <p className="text-sm text-[#0f766e]">
+                  Message sent successfully. I&apos;ll get it in Netlify submissions after deployment.
+                </p>
+              ) : null}
+
+              {formState === 'error' ? (
+                <p className="text-sm text-[#b91c1c]">
+                  Something went wrong while sending. You can try again or email me directly.
+                </p>
+              ) : null}
             </form>
           </div>
         </ShellSection>
@@ -476,17 +529,43 @@ function HomePage() {
           <SectionHeading eyebrow="Recent Highlights" title="Work, competition, and research signals." />
 
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {blogCards.map((card, index) => (
-              <div key={card.title} className="border-t border-black/15 pt-4">
-                <div className="mb-4 h-[194px] rounded-[5px] bg-[linear-gradient(160deg,rgba(17,24,39,0.92),rgba(17,24,39,0.68))]" />
-                <p className="text-[1.25rem] text-black">{card.title}</p>
-                <div className="mt-1 flex items-center justify-between text-sm text-[#6b7280]">
-                  <span>{card.date}</span>
-                  <span>0{index + 1}</span>
-                </div>
-                <p className="mt-3 max-w-sm text-[0.96rem] leading-7 text-[#111928]/80">{card.text}</p>
-              </div>
-            ))}
+            {blogCards.map((card) => {
+              const isStaticCard = card.title === 'Research Direction'
+              const Wrapper = isStaticCard ? 'div' : 'a'
+
+              return (
+                <Wrapper
+                  key={card.title}
+                  {...(!isStaticCard
+                    ? {
+                        href: card.href,
+                        target: '_blank',
+                        rel: 'noreferrer',
+                      }
+                    : {})}
+                  className={`block border-t border-black/15 pt-4 ${!isStaticCard ? 'transition hover:opacity-90' : ''}`}
+                >
+                  {isStaticCard ? (
+                    <div className="mb-4 flex h-[194px] items-center justify-center overflow-hidden rounded-[5px] border border-black/8 bg-[#49515f]">
+                      <p className="text-[1.4rem] tracking-[0.08em] text-white">Coming soon</p>
+                    </div>
+                  ) : (
+                    <div className="mb-4 h-[194px] overflow-hidden rounded-[5px] border border-black/8 bg-white">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  )}
+                  <p className="text-[1.25rem] text-black">{card.title}</p>
+                  <div className="mt-1 text-sm text-[#6b7280]">
+                    <span>{card.date}</span>
+                  </div>
+                  <p className="mt-3 max-w-sm text-[0.96rem] leading-7 text-[#111928]/80">{card.text}</p>
+                </Wrapper>
+              )
+            })}
           </div>
         </ShellSection>
 
@@ -497,13 +576,8 @@ function HomePage() {
               <p className="max-w-2xl text-[1rem] leading-7 text-[#111928]/75">
                 A lightweight way to stay in touch about projects, research updates, and future tech work.
               </p>
-              <div className="flex w-full max-w-xl gap-2">
-                <input
-                  className="h-11 flex-1 border-2 border-[#4e4e4e] bg-transparent px-3 text-[1rem] text-black outline-none placeholder:text-[#9f9f9f]"
-                  placeholder="name@example.com"
-                  aria-label="Email address for newsletter"
-                />
-                <button className="h-11 w-16 bg-[#4e4e4e] text-white">{'->'}</button>
+              <div className="flex w-full max-w-xl items-center justify-center border-2 border-[#4e4e4e] px-6 py-3 text-[1rem] text-[#6b7280]">
+                Coming soon
               </div>
               <p className="text-sm text-[#6b7280]">We'll never share your details.</p>
             </div>
@@ -512,9 +586,16 @@ function HomePage() {
       </main>
 
       <footer className="border-t border-black/15 bg-[#f5f5f5]">
-        <div className="mx-auto flex max-w-[1284px] flex-col gap-6 px-4 py-8 text-sm text-[#6b7280] sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-0">
+        <div className="mx-auto max-w-[1284px] px-4 py-10 sm:px-6 lg:px-3 [&>p:first-child]:hidden">
           <p>© 2026 Rezanur Rahman Tomal. Open to research collaboration & tech roles.</p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col gap-6 rounded-[24px] border border-black/10 bg-white/70 px-6 py-6 backdrop-blur-sm sm:px-7 lg:flex-row lg:items-center lg:justify-between">
+            <div className="space-y-1">
+              <p className="text-[0.78rem] uppercase tracking-[0.24em] text-[#6b7280]">Closing Note</p>
+              <p className="text-[1rem] leading-7 text-[#111928]/86">
+                {'\u00A9'} 2026 Rezanur Rahman Tomal. Open to research collaboration & tech roles.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-3 pr-1">
             {socialLinks.map((social) => {
               const Icon = social.icon
               return (
@@ -523,12 +604,14 @@ function HomePage() {
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-black transition hover:text-[#6b7280]"
+                  aria-label={social.label}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-[1rem] text-[#111928] transition hover:-translate-y-0.5 hover:border-black/20 hover:text-black"
                 >
                   <Icon />
                 </a>
               )
             })}
+            </div>
           </div>
         </div>
       </footer>

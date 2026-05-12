@@ -1,0 +1,25 @@
+<svg width="1120" height="388" viewBox="0 0 1120 388" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="sunGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(560 194) rotate(90) scale(170 170)">
+      <stop stop-color="#F6C23D" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#F6C23D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1120" height="388" fill="#080807"/>
+  <circle cx="560" cy="194" r="170" fill="url(#sunGlow)"/>
+  <circle cx="560" cy="194" r="95" fill="#FDB913"/>
+
+  <g fill="#EF4E4E">
+    <circle cx="62" cy="171" r="28"/><text x="62" y="179" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">8</text>
+    <circle cx="138" cy="326" r="34"/><text x="138" y="336" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">24</text>
+    <polygon points="98,26 84,0 111,13"/><polygon points="143,57 129,31 156,44"/><polygon points="171,89 157,63 184,76"/><polygon points="201,121 187,95 214,108"/><polygon points="232,154 218,128 245,141"/><polygon points="261,193 247,167 274,180"/><polygon points="287,232 273,206 300,219"/><polygon points="320,274 306,248 333,261"/><polygon points="706,339 692,313 719,326"/>
+  </g>
+
+  <g fill="#4D97FF">
+    <circle cx="1000" cy="43" r="30"/><text x="1000" y="53" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">20</text>
+    <circle cx="970" cy="95" r="18"/><text x="970" y="101" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">12</text>
+    <circle cx="1010" cy="163" r="25"/><text x="1010" y="171" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">10</text>
+    <circle cx="144" cy="248" r="19"/><text x="144" y="254" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">15</text>
+    <polygon points="840,26 866,10 859,39"/><polygon points="901,57 927,41 920,70"/><polygon points="959,32 985,16 978,45"/><polygon points="1041,21 1067,5 1060,34"/><polygon points="1014,90 1040,74 1033,103"/><polygon points="1068,111 1094,95 1087,124"/><polygon points="1001,204 1027,188 1020,217"/><polygon points="1063,226 1089,210 1082,239"/><polygon points="1045,289 1071,273 1064,302"/><polygon points="1008,338 1034,322 1027,351"/>
+  </g>
+</svg>

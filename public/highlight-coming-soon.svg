@@ -1,0 +1,16 @@
+<svg width="1120" height="388" viewBox="0 0 1120 388" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1120" y2="388" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D2433"/>
+      <stop offset="1" stop-color="#4B5568"/>
+    </linearGradient>
+  </defs>
+  <rect width="1120" height="388" rx="10" fill="url(#bg)"/>
+  <circle cx="217" cy="91" r="4" fill="white" fill-opacity="0.45"/>
+  <circle cx="283" cy="136" r="3" fill="white" fill-opacity="0.35"/>
+  <circle cx="911" cy="81" r="4" fill="white" fill-opacity="0.4"/>
+  <circle cx="843" cy="145" r="2.5" fill="white" fill-opacity="0.28"/>
+  <path d="M247 302C349 243 422 217 548 217C674 217 758 248 875 309" stroke="white" stroke-opacity="0.14" stroke-width="2"/>
+  <text x="560" y="176" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="9">RESEARCH DIRECTION</text>
+  <text x="560" y="236" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="700">COMING SOON</text>
+</svg>

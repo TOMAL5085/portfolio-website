@@ -1,0 +1,23 @@
+<svg width="1120" height="388" viewBox="0 0 1120 388" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1120" y2="388" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C8D7E6"/>
+      <stop offset="1" stop-color="#F1F6FA"/>
+    </linearGradient>
+    <linearGradient id="bird" x1="75" y1="70" x2="500" y2="275" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4A58D6"/>
+      <stop offset="1" stop-color="#20318F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1120" height="388" fill="url(#bg)"/>
+  <ellipse cx="832" cy="172" rx="214" ry="138" fill="rgba(255,255,255,0.32)"/>
+  <path d="M89 233C147 214 219 143 309 75C364 34 428 28 495 59C548 83 597 132 651 138C702 144 741 122 773 93L804 118C773 162 717 192 650 183C603 176 559 143 510 132C448 119 379 147 312 201C241 258 174 284 109 290L89 233Z" fill="url(#bird)"/>
+  <path d="M397 80C436 67 468 70 492 88C467 92 445 106 423 127L397 80Z" fill="#0F163A"/>
+  <circle cx="467" cy="96" r="10" fill="#F6C43B"/>
+  <circle cx="472" cy="96" r="4" fill="#0F163A"/>
+  <path d="M489 101L522 111L495 124L489 101Z" fill="#F6C43B"/>
+  <path d="M861 96C895 111 920 135 938 167C898 149 871 135 852 128L861 96Z" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="630" y="250" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="700">CLE</text>
+  <text x="801" y="250" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="300">BIRD</text>
+  <text x="848" y="305" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700">++</text>
+</svg>

@@ -53,15 +53,22 @@ export const socialLinks = [
 ]
 
 export const skillTicker = [
+  'JavaScript',
+  'Python',
+  'C',
   'React',
   'Node.js',
   'Express.js',
-  'Python',
   'PyTorch',
   'scikit-learn',
+  'Pandas',
+  'NumPy',
+  'Librosa',
+  'EfficientNet-B0',
   'MongoDB',
   'MySQL',
   'Git',
+  'GitHub',
   'Figma',
   'Kali Linux',
   'Cybersecurity',
@@ -75,27 +82,27 @@ export const quickStats = [
 
 export const skills = [
   {
-    title: 'Frontend',
-    items: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'React Router v6'],
+    title: 'Programming',
+    items: ['JavaScript', 'Python', 'C'],
   },
   {
-    title: 'Backend & Data',
-    items: ['Node.js', 'Express.js', 'MongoDB', 'MySQL', 'Python'],
+    title: 'Frameworks & Libraries',
+    items: ['React', 'Node.js', 'Express.js', 'PyTorch', 'scikit-learn'],
   },
   {
-    title: 'AI / ML',
-    items: ['PyTorch', 'scikit-learn', 'Pandas', 'NumPy', 'Librosa', 'EfficientNet-B0'],
+    title: 'Databases & Analysis',
+    items: ['MongoDB', 'MySQL', 'Pandas', 'NumPy'],
   },
   {
-    title: 'Tools & Security',
-    items: ['Git', 'GitHub', 'Figma', 'Kali Linux', 'Cybersecurity Basics'],
+    title: 'ML, Audio & Security',
+    items: ['EfficientNet-B0', 'Librosa', 'Mel Spectrograms', 'Kali Linux', 'Cybersecurity Concepts'],
   },
 ]
 
 export const aboutBullets = [
-  'Building real-world software and iterating quickly',
-  'Exploring AI, machine learning, and computer vision',
-  'Learning cybersecurity fundamentals and tooling',
+  'Building practical software with JavaScript, Python, React, Node.js, and Express.js',
+  'Working with machine learning, computer vision, audio processing, and deep learning workflows',
+  'Using MongoDB, MySQL, Git, GitHub, Figma, Kali Linux, and cybersecurity-focused tooling',
 ]
 
 export const education = [
@@ -112,12 +119,14 @@ export const experience = [
   {
     title: 'Independent Developer',
     meta: 'Ongoing',
+    href: 'https://github.com/TOMAL5085',
     body:
-      'Creates real-world software solutions and assignment projects using modern React and deployment workflows.',
+      'Creates real-world software solutions and projects using various technologies and tech stacks.',
   },
   {
     title: 'Kaggle Competitor',
     meta: 'Ongoing',
+    href: 'https://www.kaggle.com/rezanurrahmantomal',
     body:
       'Participates in BirdCLEF+ 2026, Orbit Wars, and related competitions while improving modeling intuition and experimentation habits.',
   },
@@ -187,17 +196,22 @@ export const blogCards = [
   {
     title: 'BirdCLEF+ 2026',
     date: '2026',
+    image: '/highlight-birdclef.png',
+    href: 'https://www.kaggle.com/competitions/birdclef-2026',
     text: 'Competition work focused on audio and ecological classification ideas.',
   },
   {
     title: 'Orbit Wars',
     date: '2026',
+    image: '/highlight-orbit-wars.png',
+    href: 'https://www.kaggle.com/competitions/orbit-wars',
     text: 'Another practical ML challenge that sharpened experimentation habits.',
   },
   {
     title: 'Research Direction',
-    date: 'Now',
-    text: 'Exploring paper ideas, AI topics, and long-term scholarship goals.',
+    date: 'Soon',
+    image: '/highlight-coming-soon.svg',
+    text: 'Coming soon',
   },
 ]
 
@@ -216,13 +230,13 @@ export const contactMethods = [
   },
   {
     label: 'GitHub',
-    value: 'Source code',
+    value: 'GitHub profile',
     href: 'https://github.com/TOMAL5085',
     icon: FaGithub,
   },
   {
     label: 'LinkedIn',
-    value: 'Professional profile',
+    value: 'LinkedIn profile',
     href: 'https://www.linkedin.com/in/tomal2006/',
     icon: FaLinkedin,
   },
