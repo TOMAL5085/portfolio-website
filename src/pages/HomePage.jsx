@@ -20,7 +20,6 @@ import {
   highlights,
   profile,
   projects,
-  skills,
   skillTicker,
   socialLinks,
 } from '../data'
@@ -75,24 +74,30 @@ function HomePage() {
               transition={{ duration: 0.6 }}
               className="max-w-[670px] pt-14 lg:pt-[3.75rem]"
             >
-              <p className="max-w-[670px] text-[clamp(2.7rem,3.8vw,3.5rem)] leading-[0.95] tracking-[-0.055em] text-[#111928]">
-                I&apos;m Rezanur
+              <p className="max-w-[760px] text-[clamp(2.2rem,3.1vw,3rem)] leading-[1.04] tracking-[-0.05em] text-[#111928]">
+                I enjoy building
                 <br />
-                Rahman Tomal, a
+                real-world software
                 <br />
-                CSE student &amp;
+                and experimenting
                 <br />
-                builder based in
+                with different
                 <br />
-                Bangladesh.
+                technologies and
                 <br />
-                Available for
+                tech stacks.
                 <br />
-                research
+                Actively participate
                 <br />
-                collaborations &amp;
+                in machine learning
                 <br />
-                tech roles.
+                competitions on
+                <br />
+                Kaggle and
+                <br />
+                continuously learn
+                <br />
+                by doing.
               </p>
             </motion.div>
 
@@ -134,62 +139,98 @@ function HomePage() {
         </ShellSection>
 
         <ShellSection id="research">
-          <SectionHeading eyebrow="Research & ML" title="Content creation, exploration, and learning by doing." />
+          <SectionHeading eyebrow="Research & ML" title="BirdCLEF+ 2026 audio classification case study." />
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div className="max-w-[560px]">
-              <p className="text-[1rem] leading-8 text-[#111928]/85">
-                I enjoy building real-world software and experimenting with different technologies and tech
-                stacks. I also actively participate in Kaggle competitions and keep learning through machine
-                learning practice, audio processing, computer vision, and cybersecurity exploration.
-              </p>
-              <a
-                href="#contact"
-                className="mt-10 inline-flex items-center gap-2 border-b border-black pb-1 text-[1rem] text-black transition hover:border-[#6b7280] hover:text-[#6b7280]"
-              >
-                Get in contact about research or collaborations
-                <FiArrowUpRight />
-              </a>
+          <div className="mt-10 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <div className="space-y-6">
+              <div className="rounded-[22px] border border-black/10 bg-white p-6 shadow-[0_0_0_1px_rgba(0,0,0,0.02)]">
+                <p className="text-[0.76rem] tracking-[0.28em] text-[#6b7280] uppercase">
+                  Kaggle Competition Participant: BirdCLEF+ 2026 (2026)
+                </p>
+                <h3 className="mt-4 text-[1.9rem] leading-[1.05] tracking-[-0.05em] text-black sm:text-[2.3rem]">
+                  Bird Sound Classification Challenge
+                </h3>
+                <p className="mt-5 text-[1rem] leading-8 text-[#111928]/82">
+                  Built an end-to-end audio classification pipeline to identify 234 bird species from
+                  soundscape recordings.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {[
+                    'Python',
+                    'PyTorch',
+                    'timm',
+                    'EfficientNet-B0',
+                    'Librosa',
+                    'OpenCV',
+                    'NumPy',
+                    'Pandas',
+                    'Matplotlib',
+                    'Seaborn',
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-black/10 bg-[#f7f7f7] px-3 py-1 text-[0.8rem] text-[#111928]/82"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href="https://github.com/TOMAL5085/BirdCLEF-2026"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 border-b border-black pb-1 text-[1rem] text-black transition hover:border-[#6b7280] hover:text-[#6b7280]"
+                >
+                  View BirdCLEF+ 2026 repository
+                  <FiArrowUpRight />
+                </a>
+              </div>
             </div>
 
-            <div className="overflow-hidden rounded-[5px] border border-black/10 bg-white p-2 shadow-[0_0_0_1px_rgba(0,0,0,0.02)]">
-              <div className="grid gap-3 lg:grid-cols-[0.98fr_1.02fr]">
-                <div className="relative min-h-[336px] overflow-hidden rounded-[5px] bg-[#111928] p-5 text-white">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(255,255,255,0.14),transparent_26%),radial-gradient(circle_at_20%_85%,rgba(255,255,255,0.08),transparent_18%)]" />
-                  <img
-                    src={profile.photo}
-                    alt="Rezanur Rahman Tomal portrait"
-                    className="absolute right-0 top-0 h-full w-[58%] object-cover object-center opacity-90"
-                  />
-                  <div className="relative z-10 max-w-[42%]">
-                    <p className="text-[0.8rem] uppercase tracking-[0.25em] text-white/70">
-                      Focus Areas
-                    </p>
-                    <p className="mt-4 text-[1.15rem] leading-8">
-                      AI
-                      <br />
-                      Cybersecurity
-                      <br />
-                      Research
-                      <br />
-                      Full Stack
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col justify-between rounded-[5px] border border-black/10 bg-[#f5f5f5] p-4">
-                  {skills.map((skill, index) => (
-                    <div key={skill.title} className="flex-1">
-                      <div className="flex items-center justify-between gap-4 py-3">
-                        <p className="text-[1.05rem] text-black">0{index + 1}. {skill.title}</p>
-                        <FiArrowRight className="-rotate-45 text-black/70" />
-                      </div>
-                      <div className="h-px bg-black/10" />
-                      <p className="mt-3 text-[0.92rem] leading-7 text-[#111928]/75">
-                        {skill.items.join(' • ')}
-                      </p>
+            <div className="grid gap-4">
+              <div className="rounded-[22px] border border-black/10 bg-[#101826] p-6 text-white shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
+                <p className="text-[0.76rem] tracking-[0.28em] text-white/58 uppercase">Pipeline Highlights</p>
+                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  {[
+                    [
+                      'Audio Pipeline',
+                      'Converted raw audio to Mel Spectrograms with 128 bands and a 32kHz sample rate.',
+                    ],
+                    [
+                      'Modeling',
+                      'Fed spectrograms into an EfficientNet-B0 model using timm with ImageNet pretrained weights.',
+                    ],
+                    [
+                      'Generalisation',
+                      'Implemented a custom PyTorch Dataset and DataLoader with random gain adjustment and Gaussian noise augmentation.',
+                    ],
+                    [
+                      'Inference',
+                      'Loaded trained weights, ran sliding-window chunk predictions over soundscape files, and generated final submissions with sigmoid thresholds.',
+                    ],
+                  ].map(([title, body]) => (
+                    <div key={title} className="rounded-[18px] border border-white/10 bg-white/6 p-4">
+                      <p className="text-[0.95rem] text-white">{title}</p>
+                      <p className="mt-2 text-[0.86rem] leading-6 text-white/72">{body}</p>
                     </div>
                   ))}
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-[20px] border border-black/10 bg-white p-5 shadow-[0_0_0_1px_rgba(0,0,0,0.02)]">
+                  <p className="text-[0.76rem] tracking-[0.24em] text-[#6b7280] uppercase">EDA</p>
+                  <p className="mt-3 text-[0.95rem] leading-7 text-[#111928]/82">
+                    Performed class imbalance analysis across 234 species, filtered by audio quality rating,
+                    and integrated data from iNaturalist and soundscape recordings.
+                  </p>
+                </div>
+                <div className="rounded-[20px] border border-black/10 bg-white p-5 shadow-[0_0_0_1px_rgba(0,0,0,0.02)]">
+                  <p className="text-[0.76rem] tracking-[0.24em] text-[#6b7280] uppercase">What I Built</p>
+                  <p className="mt-3 text-[0.95rem] leading-7 text-[#111928]/82">
+                    A full training and inference workflow for bird sound recognition, from preprocessing and
+                    augmentation to model predictions and competition-ready output files.
+                  </p>
                 </div>
               </div>
             </div>
@@ -230,7 +271,7 @@ function HomePage() {
                   {skillTicker.map((item, index) => (
                     <span key={item} className="whitespace-nowrap">
                       {item}
-                      {index < skillTicker.length - 1 ? ' •' : ''}
+                      {index < skillTicker.length - 1 ? ' ·' : ''}
                     </span>
                   ))}
                 </div>
@@ -306,8 +347,8 @@ function HomePage() {
                 </button>
                 <div className="max-w-2xl text-center">
                   <p className="text-[1.1rem] leading-8 text-black">
-                    “Passionate about AI, cybersecurity, and building real-world products through hands-on
-                    learning.”
+                    "Passionate about AI, cybersecurity, and building real-world products through hands-on
+                    learning."
                   </p>
                   <p className="mt-3 text-sm uppercase tracking-[0.25em] text-[#6b7280]">
                     Rezanur Rahman Tomal
@@ -462,9 +503,9 @@ function HomePage() {
                   placeholder="name@example.com"
                   aria-label="Email address for newsletter"
                 />
-                <button className="h-11 w-16 bg-[#4e4e4e] text-white">→</button>
+                <button className="h-11 w-16 bg-[#4e4e4e] text-white">{'->'}</button>
               </div>
-              <p className="text-sm text-[#6b7280]">We’ll never share your details.</p>
+              <p className="text-sm text-[#6b7280]">We'll never share your details.</p>
             </div>
           </div>
         </section>
